@@ -51,6 +51,5 @@ public class ClientThread extends Thread {
     }
     public void messageSent(String message) {
         writer.println(message);
-
     }
 }
