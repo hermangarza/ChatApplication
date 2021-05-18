@@ -15,7 +15,6 @@ public class WriteToServer extends Thread {
         this.client = client;
         write();
     }
-
     private void write() {
         try {
             output = new DataOutputStream(socket.getOutputStream());
