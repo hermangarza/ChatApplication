@@ -22,7 +22,6 @@ public class WriteToServer extends Thread {
         } catch (IOException e) {
             System.out.println("Error. Could not get output stream. " + e.getMessage());
             e.printStackTrace();
-
         }
     }
     public void run() {
@@ -31,17 +30,13 @@ public class WriteToServer extends Thread {
         clientName= console.readLine("\nEnter client name: ");
         client.setClientName(clientName);
         writer.println(clientName);
-
-
+        
         String text = "";
         do {
             text = console.readLine("[" + clientName + "]: ");
             writer.println(text);
-
         } while(!text.equals("END"));
-
         close();
-
     }
     private void close() {
         try {
