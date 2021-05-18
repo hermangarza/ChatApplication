@@ -7,9 +7,9 @@ import java.util.Set;
 public class Server {
     private Socket socket;
     private ServerSocket server;
-    private final int port;
-    private final Set<String> clients = new HashSet<String>();
-    private final Set<ClientThread> clientThreads = new HashSet<ClientThread>();
+    private int port;
+    private Set<String> clients = new HashSet<String>();
+    private Set<ClientThread> clientThreads = new HashSet<ClientThread>();
 
     public Server(int port) {
         this.port = port;
