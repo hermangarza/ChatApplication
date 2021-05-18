@@ -12,7 +12,6 @@ public class ReadToServer extends Thread {
         this.client = client;
         read();
     }
-
     private void read() {
         try {
             input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
@@ -20,7 +19,6 @@ public class ReadToServer extends Thread {
         } catch (IOException e) {
             System.out.println("Error. Could not get input stream. " + e.getMessage());
             e.printStackTrace();
-
         }
     }
     public void run() {
