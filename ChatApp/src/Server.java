@@ -8,16 +8,14 @@ public class Server {
     private Socket socket;
     private ServerSocket server;
     private final int port;
-
-    private Set<String> clients = new HashSet<String>();
-    private Set<ClientThread> clientThreads = new HashSet<ClientThread>();
+    private final Set<String> clients = new HashSet<String>();
+    private final Set<ClientThread> clientThreads = new HashSet<ClientThread>();
 
     public Server(int port) {
         this.port = port;
         connect();
         close();
     }
-
     private void connect() {
         try {
             server = new ServerSocket(port);
@@ -37,13 +35,11 @@ public class Server {
                     System.out.println("Server ended. " + e.getMessage());
                     e.printStackTrace();
                 }
-
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
     private void close() {
         try {
             System.out.println("Closing connection");
@@ -52,27 +48,22 @@ public class Server {
             e.printStackTrace();
         }
     }
-
     public void add(String client) {
         clients.add(client);
 
     }
-
     public void remove(String client, ClientThread clientThread) {
         if (clients.remove(client)) {
             clients.remove(clientThread);
             System.out.println("Client " + client + " has been removed.");
         }
-
     }
-
     public void broadcast(String message, ClientThread excludedClient) {
         for (ClientThread client : clientThreads) {
             if (client != excludedClient) {
                 client.messageSent(message);
             }
         }
-
     }
     public static void main(String[] args) {
         Server server = new Server(8000);
