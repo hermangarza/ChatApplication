@@ -13,8 +13,6 @@ public class Client {
         this.port = port;
         connect();
     }
-
-    //establish a connection between client and server
     private void connect() {
         try {
             socket = new Socket(address, port);
