@@ -22,27 +22,20 @@ public class Client {
             new ReadToServer(socket, this).start();
             new WriteToServer(socket, this).start();
 
-
         } catch (UnknownHostException e) {
             System.out.println("Error. Server not found. " + e.getMessage());
             e.printStackTrace();
         } catch (IOException e) {
             System.out.println("IO Error. " + e.getMessage());
             e.printStackTrace();
-
         }
     }
-
     public void setClientName(String clientName) {
         this.clientName = clientName;
-
     }
-
     public String getClientName() {
         return clientName;
-
     }
-
     public static void main(String[] args) {
         Client client = new Client("127.0.0.1", 8000);
     }
